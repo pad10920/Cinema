@@ -21,9 +21,8 @@ public class HomeController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("Đức Anh Phạm");
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
-
-
 
 }

@@ -1,5 +1,7 @@
 package com.example.cinema.api;
 
+import com.example.cinema.model.User;
+import com.example.cinema.services.UserSevice;
 import com.google.gson.Gson;
 
 import javax.servlet.*;
@@ -12,11 +14,15 @@ import java.io.PrintWriter;
 @MultipartConfig
 public class DangKyAPI extends HttpServlet {
 
+    UserSevice userSevice = UserSevice.khoiTaoUserService();
     Gson gson = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        PrintWriter printWriter = response.getWriter();
+        printWriter.print(userSevice.dangKy(username, email));
     }
 
     @Override
@@ -25,6 +31,6 @@ public class DangKyAPI extends HttpServlet {
         String email = request.getParameter("email");
 
         PrintWriter printWriter = response.getWriter();
-        printWriter.print(true);
+        printWriter.print(username + ' ' + email);
     }
 }

@@ -1,4 +1,4 @@
-const DIACHI_API = "localhost:8080/api/";
+const DIACHI_API = "https://localhost:8443/api";
 
 function kiemTraFrmTrong(phanTuFrm){
     var phanTuInputs = phanTuFrm.querySelectorAll('input');
@@ -9,12 +9,12 @@ function kiemTraFrmTrong(phanTuFrm){
             formHopLe = false;
         }
         else{
-            console.log(phanTuInput.value)
             phanTuInput.classList.remove('input--khonghople');
         }
     })
     if (formHopLe == false){
-        document.querySelector('.kiem-tra-hop-le').classList.remove('object-an');
+        document.querySelector('.phan-hoi').textContent = 'Không được để trống thông tin'
+        document.querySelector('.phan-hoi').hidden = false;
     }
     return formHopLe;
 }
@@ -22,7 +22,6 @@ function kiemTraFrmTrong(phanTuFrm){
 function kiemTraHopLeInput(phanTuInput){
     var hople = phanTuInput.value.length >= phanTuInput.getAttribute('minlength')
                 && phanTuInput.value.length <= phanTuInput.getAttribute("maxlength");
-    console.log(hople);
     if (hople == false){
         phanTuInput.classList.add('input--khonghople');
     }
@@ -35,8 +34,17 @@ function kiemTraHopLeEmail(phanTuInput){
     var email = phanTuInput.value;
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
         phanTuInput.classList.remove('input--khonghople');
-        return (true)
+        return true;
     }
     phanTuInput.classList.add('input--khonghople');
-    return (false)
+    return false;
+}
+
+function moModal(){
+    document.querySelector('.modal').style.display = 'flex';
+    document.getElementsByTagName('body')[0].classList.add('modal-open');
+}
+function tatModal(){
+    document.querySelector('.modal').style.display = 'none';
+    document.getElementsByTagName('body')[0].classList.remove('modal-open');
 }

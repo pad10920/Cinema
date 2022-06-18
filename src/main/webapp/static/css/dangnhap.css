@@ -117,3 +117,14 @@ button{
     font-size: 16px;
     margin-top: 50px;
 }
+
+.quenmk-hanhdong{
+    display: flex;
+    justify-content: space-around;
+}
+.quenmk-hanhdong a{
+    width: 30%;
+}
+.quenmk-hanhdong button{
+    width: 100%;
+}

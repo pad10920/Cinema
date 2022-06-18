@@ -13,7 +13,7 @@ public class SessionUtil {
     }
 
     public void laySession(HttpServletRequest req, String key){
-        req.getSession().getAttribute(key);
+         req.getSession().getAttribute(key);
     }
 
     public void xoaSession(HttpServletRequest req, String key){

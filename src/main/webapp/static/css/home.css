@@ -22,6 +22,9 @@ dung chung
 .chu-do{
     color: red;
 }
+.chu-xanh{
+    color: darkgreen;
+}
 
 /* kiem tra hop le form */
 .input--khonghople{
@@ -329,4 +332,28 @@ dung chung
 .footer-withlove a:hover{
     text-decoration: none;
     color:#3db1f3;
+}
+
+/* MODAL */
+/* loading modal */
+#loading-modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#loading-modal img{
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    pointer-events: none;
+    user-select: none;
+
+}
+body.modal-open{
+    overflow: hidden;
 }

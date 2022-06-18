@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="icon" href="static/img/32.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="../static/img/32.png" type="image/gif" sizes="16x16">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="static/css/dangnhap.css">
-    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="../static/css/dangnhap.css">
+    <link rel="stylesheet" href="../static/css/home.css">
 </head>
 <body>
 
@@ -57,7 +57,7 @@
                     <span>
                             Số điện thoại
                     </span>
-                <input type="number" name="sdt" id="sdt" placeholder="Số điện thoại" minlength="10" maxlength="10"
+                <input type="tel" name="sdt" id="sdt" placeholder="Số điện thoại" minlength="10" maxlength="10"
                        oninput="kiemTraHopLeInput(this)">
             </div>
             <div class="info">
@@ -74,7 +74,7 @@
                 <input type="password" name="re-password" id="re-password" placeholder="Xác nhận lại mật khẩu"
                        oninput="kiemTraTrungMatKhau(this)">
             </div>
-            <span class="chu-do object-an kiem-tra-hop-le">Hãy nhập đầy đủ thông tin</span>
+            <span class="chu-do phan-hoi" hidden></span>
             <button onclick="dangKyTaiKhoan()">Đăng ký</button>
         </form>
     </div>
@@ -113,7 +113,7 @@
     </div>
 
 </div>
-<script src="static/js/dungchung.js"></script>
-<script src="static/js/dangky.js"></script>
+<script src="../static/js/dungchung.js"></script>
+<script src="../static/js/dangky.js"></script>
 </body>
 </html>
