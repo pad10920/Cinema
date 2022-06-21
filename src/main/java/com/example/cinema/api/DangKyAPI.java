@@ -1,6 +1,5 @@
 package com.example.cinema.api;
 
-import com.example.cinema.model.User;
 import com.example.cinema.services.UserSevice;
 import com.google.gson.Gson;
 

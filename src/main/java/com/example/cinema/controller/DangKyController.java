@@ -5,12 +5,10 @@
  */
 package com.example.cinema.controller;
 
-import com.example.cinema.dao.UserDAO;
-import com.example.cinema.model.User;
+import com.example.cinema.model.UserD;
 import com.example.cinema.services.UserSevice;
-import com.google.gson.Gson;
+
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,16 +22,16 @@ public class DangKyController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = new User();
-        user.setUsername(req.getParameter("username"));
-        user.setEmail(req.getParameter("email"));
-        user.setHoTen(req.getParameter("hovaten"));
-        user.setSdt(req.getParameter("sdt"));
-        user.setPassword(req.getParameter("password"));
-        user.setDiaChi("Bac Giang");
-        user.setQuyen("ROLE_USER");
+        UserD userD = new UserD();
+        userD.setUsername(req.getParameter("username"));
+        userD.setEmail(req.getParameter("email"));
+        userD.setHoTen(req.getParameter("hovaten"));
+        userD.setSdt(req.getParameter("sdt"));
+        userD.setPassword(req.getParameter("password"));
+        userD.setDiaChi("Bac Giang");
+        userD.setQuyen("ROLE_USER");
 
-        userSevice.luuUser(user);
+        userSevice.luuUser(userD);
         resp.sendRedirect("/dang-nhap");
     }
 

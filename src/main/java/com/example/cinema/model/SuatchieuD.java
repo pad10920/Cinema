@@ -3,28 +3,28 @@ package com.example.cinema.model;
 import java.sql.Date;
 import java.sql.Time;
 
-public class Suatchieu {
+public class SuatchieuD {
     private int IdSuatchieu;
     private int giaVe;
     private Date ngaychieu;
     private Time thoigianBd;
     private Time thoigianKt;
-    private Phim phim;
-    private Phongchieu phongchieu;
+    private PhimD phimD;
+    private PhongchieuD phongchieuD;
 
-    public Suatchieu() {
+    public SuatchieuD() {
     }
 
     @Override
     public String toString() {
-        return "Suatchieu{" +
+        return "SuatchieuD{" +
                 "IdSuatchieu=" + IdSuatchieu +
                 ", giaVe=" + giaVe +
                 ", ngaychieu=" + ngaychieu +
                 ", thoigianBd=" + thoigianBd +
                 ", thoigianKt=" + thoigianKt +
-                ", phim=" + phim +
-                ", phongchieu=" + phongchieu +
+                ", phimD=" + phimD +
+                ", phongchieuD=" + phongchieuD +
                 '}';
     }
 
@@ -68,29 +68,29 @@ public class Suatchieu {
         this.thoigianKt = thoigianKt;
     }
 
-    public Phim getPhim() {
-        return phim;
+    public PhimD getPhim() {
+        return phimD;
     }
 
-    public void setPhim(Phim phim) {
-        this.phim = phim;
+    public void setPhim(PhimD phimD) {
+        this.phimD = phimD;
     }
 
-    public Phongchieu getPhongchieu() {
-        return phongchieu;
+    public PhongchieuD getPhongchieu() {
+        return phongchieuD;
     }
 
-    public void setPhongchieu(Phongchieu phongchieu) {
-        this.phongchieu = phongchieu;
+    public void setPhongchieu(PhongchieuD phongchieuD) {
+        this.phongchieuD = phongchieuD;
     }
 
-    public Suatchieu(int idSuatchieu, int giaVe, Date ngaychieu, Time thoigianBd, Time thoigianKt, Phim phim, Phongchieu phongchieu) {
+    public SuatchieuD(int idSuatchieu, int giaVe, Date ngaychieu, Time thoigianBd, Time thoigianKt, PhimD phimD, PhongchieuD phongchieuD) {
         IdSuatchieu = idSuatchieu;
         this.giaVe = giaVe;
         this.ngaychieu = ngaychieu;
         this.thoigianBd = thoigianBd;
         this.thoigianKt = thoigianKt;
-        this.phim = phim;
-        this.phongchieu = phongchieu;
+        this.phimD = phimD;
+        this.phongchieuD = phongchieuD;
     }
 }

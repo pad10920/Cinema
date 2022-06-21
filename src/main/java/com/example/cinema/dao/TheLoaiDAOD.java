@@ -6,7 +6,7 @@
 package com.example.cinema.dao;
 
 import com.example.cinema.mapper.TheLoaiMapper;
-import com.example.cinema.model.TheLoai;
+import com.example.cinema.model.TheLoaiD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,11 +19,11 @@ import java.util.List;
  *
  * @author cuong
  */
-public class TheLoaiDAO extends AbstractDAO{
+public class TheLoaiDAOD extends AbstractDAOD {
 
-    private static  TheLoaiDAO theLoaiDAO = null;
-    public static TheLoaiDAO khoiTaoTheLoaiDAO(){
-        return theLoaiDAO == null ? new TheLoaiDAO() : theLoaiDAO;
+    private static TheLoaiDAOD theLoaiDAO = null;
+    public static TheLoaiDAOD khoiTaoTheLoaiDAO(){
+        return theLoaiDAO == null ? new TheLoaiDAOD() : theLoaiDAO;
     }
 
     private TheLoaiMapper theLoaiMapper = TheLoaiMapper.khoiTaoTheLoaiMapper();
@@ -56,9 +56,9 @@ public class TheLoaiDAO extends AbstractDAO{
         }
         return list;
     }
-    public List<TheLoai> layListTheloai(){
-        List<TheLoai> result = new ArrayList<>();
-        Connection connection = AbstractDAO.getConnection();
+    public List<TheLoaiD> layListTheloai(){
+        List<TheLoaiD> result = new ArrayList<>();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
@@ -67,9 +67,9 @@ public class TheLoaiDAO extends AbstractDAO{
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                TheLoai theLoai = new TheLoai();
-                theLoai = theLoaiMapper.theLoaiDaoSangTheLoai(resultSet, theLoai);
-                result.add(theLoai);
+                TheLoaiD theLoaiD = new TheLoaiD();
+                theLoaiD = theLoaiMapper.theLoaiDaoSangTheLoai(resultSet, theLoaiD);
+                result.add(theLoaiD);
             }
             resultSet.close();
         } catch (SQLException e) {

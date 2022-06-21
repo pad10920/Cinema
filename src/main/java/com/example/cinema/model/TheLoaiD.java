@@ -1,13 +1,13 @@
 package com.example.cinema.model;
 
-public class TheLoai {
+public class TheLoaiD {
     private int idTheloai;
     private String tenLoai;
 
-    public TheLoai() {
+    public TheLoaiD() {
     }
 
-    public TheLoai(int idTheloai, String tenLoai) {
+    public TheLoaiD(int idTheloai, String tenLoai) {
         this.idTheloai = idTheloai;
         this.tenLoai = tenLoai;
     }
@@ -30,7 +30,7 @@ public class TheLoai {
 
     @Override
     public String toString() {
-        return "TheLoai{" +
+        return "TheLoaiD{" +
                 "idTheloai=" + idTheloai +
                 ", tenLoai='" + tenLoai + '\'' +
                 '}';

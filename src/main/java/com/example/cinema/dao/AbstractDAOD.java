@@ -6,7 +6,7 @@
 package com.example.cinema.dao;
 
 import java.sql.*;
-public class AbstractDAO {
+public class AbstractDAOD {
     
     public static Connection getConnection() {
         try {

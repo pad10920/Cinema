@@ -9,9 +9,9 @@
             <web-resource-name>AuthServer</web-resource-name>
             <url-pattern>/*</url-pattern>
         </web-resource-collection>
-        <user-data-constraint>
+        <userD-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
+        </userD-data-constraint>
     </security-constraint>
 
     <filter>

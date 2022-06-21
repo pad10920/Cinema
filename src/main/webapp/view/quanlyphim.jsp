@@ -19,7 +19,7 @@
         <!--Phần bar chọn chức năng-->
         <div class="bar">
             <a href="/quan-ly/quanlyphim" style="color: white;">
-                <div class="quanly phim"> <span class="round"><i class="fa fa-chevron-right"></i></span>
+                <div class="quanly phimD"> <span class="round"><i class="fa fa-chevron-right"></i></span>
                     &ensp;QUẢN LÝ PHIM</div>
             </a>
             <a href="/quan-ly/quanlysuatchieu">
@@ -30,7 +30,7 @@
                     &ensp;THỐNG KÊ</div>
             </a>
         </div>
-        <!--Phần quản lý phim-->
+        <!--Phần quản lý phimD-->
         <div class="quanlybox">
             <!--Lựa chọn sửa hoặc thêm-->
             <nav class="nav">
@@ -38,7 +38,7 @@
                 <a href="#" class="nav-item" active-color="white" value="suaPhim">SỬA PHIM</a>
                 <span class="nav-indicator"></span>
             </nav>
-            <!--Phần thêm phim-->
+            <!--Phần thêm phimD-->
             <div class="nhap active" id="themphim">
                 <div id="formdata1">
                     <div class="group">
@@ -71,7 +71,7 @@
                         <div class="theLoaiPhim">
                             <div class="selectBox" onclick="showTheLoaiPhim('checkboxes', 'theLoaiPhim')">
                                 <select>
-                                    <option>Chọn thể loại phim</option>
+                                    <option>Chọn thể loại phimD</option>
                                 </select>
                                 <div class="overSelect"></div>
                             </div>
@@ -92,7 +92,7 @@
                     <button class="sub" id="create"> Thêm</button>
                 </div>
             </div>
-            <!--Phần sửa phim-->
+            <!--Phần sửa phimD-->
             <div class="nhap" id="suaphim">
                 <div>
                     <div class="group">
@@ -127,7 +127,7 @@
                         <div class="theLoaiPhim">
                             <div class="selectBox" onclick="showTheLoaiPhim('cbTheLoaiSua')">
                                 <select>
-                                    <option>Chọn thể loại phim</option>
+                                    <option>Chọn thể loại phimD</option>
                                 </select>
                                 <div class="overSelect"></div>
                             </div>
@@ -145,7 +145,7 @@
                     
                 </div>
                 <div class="search">
-                    <!--Tìm tên phim-->
+                    <!--Tìm tên phimD-->
                     <div class="tim" id="az">TÌM TÊN PHIM</div>
                     <div>
 
@@ -153,7 +153,7 @@
                         <button class="sub2" value="TÌM KIẾM" id="tim" onclick="timPhim()">TÌM KIẾM</button>
                         <button onclick="layListPhim()" class="sub2" value="TÌM KIẾM" id="tim2">TẤT CẢ</button>
                     </div>
-                    <!--Bảng hiển thị phim tìm kiếm-->
+                    <!--Bảng hiển thị phimD tìm kiếm-->
                     <div class="danhsach">
                         <div class="bangphim">
                             <div class="truong">

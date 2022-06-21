@@ -1,6 +1,6 @@
 package com.example.cinema.utils;
 
-import com.example.cinema.model.User;
+import com.example.cinema.model.UserD;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -23,23 +23,23 @@ public class PhanQuyenFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         String path = httpServletRequest.getServletPath();
         HttpSession session = httpServletRequest.getSession();
-        User user = (User) session.getAttribute("USER");
+        UserD userD = (UserD) session.getAttribute("USER");
 
         // admin phan quyen
         if (path.startsWith("/quan-ly")){
-            if (user == null)
+            if (userD == null)
                 httpServletRequest.getRequestDispatcher("/").forward(request, response);
-            else if (user.getQuyen().compareTo("ROLE_ADMIN")!=0)
+            else if (userD.getQuyen().compareTo("ROLE_ADMIN")!=0)
                 httpServletRequest.getRequestDispatcher("/").forward(request, response);
         }
 
         // phan quyen nguoi dung
-        if (path.startsWith("/tai-khoan") && user == null){
+        if (path.startsWith("/tai-khoan") && userD == null){
             httpServletRequest.getRequestDispatcher("/dang-nhap").forward(request, response);
         }
 
         // dang nhap, dang xuat
-        if (path.startsWith("/dang-nhap") && user != null){
+        if (path.startsWith("/dang-nhap") && userD != null){
             httpServletRequest.getRequestDispatcher("/").forward(request, response);
         }
 

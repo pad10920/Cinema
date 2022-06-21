@@ -5,7 +5,7 @@
  */
 package com.example.cinema.model;
 
-public class User {
+public class UserD {
     private int idUser;
     private String username;
     private String password;
@@ -15,7 +15,7 @@ public class User {
     private String email;
     private String quyen;
 
-    public User(int idUser, String username, String password, String hoTen, String diaChi, String sdt, String email, String quyen) {
+    public UserD(int idUser, String username, String password, String hoTen, String diaChi, String sdt, String email, String quyen) {
         this.idUser = idUser;
         this.username = username;
         this.password = password;
@@ -26,7 +26,7 @@ public class User {
         this.quyen = quyen;
     }
 
-    public User() {
+    public UserD() {
     }
 
     public int getIdUser() {
@@ -95,7 +95,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserD{" +
                 "idUser=" + idUser +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

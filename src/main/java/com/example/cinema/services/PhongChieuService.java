@@ -1,8 +1,8 @@
 package com.example.cinema.services;
 
-import com.example.cinema.dao.PhongchieuDAO;
-import com.example.cinema.dao.SuatchieuDAO;
-import com.example.cinema.model.Phongchieu;
+import com.example.cinema.dao.PhongchieuDAOD;
+import com.example.cinema.dao.SuatchieuDAOD;
+import com.example.cinema.model.PhongchieuD;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -17,15 +17,15 @@ public class PhongChieuService {
         return service == null ? new PhongChieuService() : service;
     }
 
-    SuatchieuDAO suatchieuDAO = SuatchieuDAO.khoitao();
-    PhongchieuDAO phongchieuDAO = PhongchieuDAO.khoitao();
+    SuatchieuDAOD suatchieuDAOD = SuatchieuDAOD.khoitao();
+    PhongchieuDAOD phongchieuDAOD = PhongchieuDAOD.khoitao();
 
-    public List<Phongchieu> layListPhongchieuSanDung(String dateshow, String startTime, String endTime, int idRap){
-        List<Phongchieu> phongchieuList = new ArrayList<>();
+    public List<PhongchieuD> layListPhongchieuSanDung(String dateshow, String startTime, String endTime, int idRap){
+        List<PhongchieuD> phongchieuDList = new ArrayList<>();
         Date ngaychieu = convertStringToDate(dateshow);
         Time thoigianBd = convertStringToTime(startTime);
         Time thoigianKt = convertStringToTime(endTime);
-        return phongchieuDAO.layListPhongChieuSanDung(idRap, ngaychieu, thoigianBd, thoigianKt);
+        return phongchieuDAOD.layListPhongChieuSanDung(idRap, ngaychieu, thoigianBd, thoigianKt);
     }
 
     private Date convertStringToDate(String dateStr){

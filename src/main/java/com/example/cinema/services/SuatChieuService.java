@@ -1,9 +1,9 @@
 package com.example.cinema.services;
 
-import com.example.cinema.dao.GheDAO;
-import com.example.cinema.dao.PhongchieuDAO;
-import com.example.cinema.dao.SuatchieuDAO;
-import com.example.cinema.model.Suatchieu;
+import com.example.cinema.dao.GheDAOD;
+import com.example.cinema.dao.PhongchieuDAOD;
+import com.example.cinema.dao.SuatchieuDAOD;
+import com.example.cinema.model.SuatchieuD;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -18,52 +18,52 @@ public class SuatChieuService {
         return service == null ? new SuatChieuService() : service;
     }
 
-    private SuatchieuDAO suatchieuDAO = SuatchieuDAO.khoitao();
-    private PhongchieuDAO phongchieuDAO = PhongchieuDAO.khoitao();
-    private GheDAO gheDAO = GheDAO.khoitao();
+    private SuatchieuDAOD suatchieuDAOD = SuatchieuDAOD.khoitao();
+    private PhongchieuDAOD phongchieuDAOD = PhongchieuDAOD.khoitao();
+    private GheDAOD gheDAOD = GheDAOD.khoitao();
 
-    public void themSuatChieu(Suatchieu suatchieu, int idPhim, String phongchieu){
+    public void themSuatChieu(SuatchieuD suatchieuD, int idPhim, String phongchieu){
         for (String s: phongchieu.trim().split(",")){
             int idPhongchieu = Integer.parseInt(s.trim());
-            int nextIdSuatchieu = suatchieuDAO.layNextIdSuatchieu();
-            int soluongghe = phongchieuDAO.laySoLuongGhe(idPhongchieu);
-            suatchieuDAO.themSuatChieu(suatchieu, idPhim, idPhongchieu);
-            gheDAO.themGheChoShow(soluongghe, nextIdSuatchieu);
+            int nextIdSuatchieu = suatchieuDAOD.layNextIdSuatchieu();
+            int soluongghe = phongchieuDAOD.laySoLuongGhe(idPhongchieu);
+            suatchieuDAOD.themSuatChieu(suatchieuD, idPhim, idPhongchieu);
+            gheDAOD.themGheChoShow(soluongghe, nextIdSuatchieu);
         }
     }
 
-    public List<Suatchieu> layListSuatchieuByrap(int idRap){
-        List<Suatchieu> suatchieuList = new ArrayList<>();
-        suatchieuList = suatchieuDAO.layListByRapId(idRap);
-        return suatchieuList;
+    public List<SuatchieuD> layListSuatchieuByrap(int idRap){
+        List<SuatchieuD> suatchieuDList = new ArrayList<>();
+        suatchieuDList = suatchieuDAOD.layListByRapId(idRap);
+        return suatchieuDList;
     }
 
-    public Suatchieu laySuatChieuById(int suatChieuId){
-        Suatchieu suatchieu = new Suatchieu();
-        suatchieu = suatchieuDAO.laySuatchieuById(suatChieuId);
-        return suatchieu;
+    public SuatchieuD laySuatChieuById(int suatChieuId){
+        SuatchieuD suatchieuD = new SuatchieuD();
+        suatchieuD = suatchieuDAOD.laySuatchieuById(suatChieuId);
+        return suatchieuD;
     }
 
-    public Suatchieu taoSuatChieuByInfo(String SNgaychieu, String Sthoigianbd,
-                                        String Sthoigiankt, int giave){
-        Suatchieu suatchieu = new Suatchieu();
+    public SuatchieuD taoSuatChieuByInfo(String SNgaychieu, String Sthoigianbd,
+                                         String Sthoigiankt, int giave){
+        SuatchieuD suatchieuD = new SuatchieuD();
         Date ngaychieu = convertStringToDate(SNgaychieu);
         Time thoigianbd = convertStringToTime(Sthoigianbd);
         Time thoigiankt = convertStringToTime(Sthoigiankt);
 
-        suatchieu.setGiaVe(giave);
-        suatchieu.setNgaychieu(ngaychieu);
-        suatchieu.setThoigianBd(thoigianbd);
-        suatchieu.setThoigianKt(thoigiankt);
+        suatchieuD.setGiaVe(giave);
+        suatchieuD.setNgaychieu(ngaychieu);
+        suatchieuD.setThoigianBd(thoigianbd);
+        suatchieuD.setThoigianKt(thoigiankt);
 
-        return suatchieu;
+        return suatchieuD;
     }
 
     public void capNhatSuatChieu(int idSuatchieu, int idPhim, int giaVe){
-        suatchieuDAO.capNhatSuatChieu(idSuatchieu, idPhim, giaVe);
+        suatchieuDAOD.capNhatSuatChieu(idSuatchieu, idPhim, giaVe);
     }
     public void xoaSuatChieuById(int id){
-        suatchieuDAO.xoaById(id);
+        suatchieuDAOD.xoaById(id);
     }
 
     private Date convertStringToDate(String dateStr){

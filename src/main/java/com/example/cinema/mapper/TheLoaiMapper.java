@@ -1,6 +1,6 @@
 package com.example.cinema.mapper;
 
-import com.example.cinema.model.TheLoai;
+import com.example.cinema.model.TheLoaiD;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,13 +11,13 @@ public class TheLoaiMapper {
         return theLoaiMapper == null ? new TheLoaiMapper() : theLoaiMapper;
     }
 
-    public TheLoai theLoaiDaoSangTheLoai(ResultSet theLoaiRS, TheLoai theLoai){
+    public TheLoaiD theLoaiDaoSangTheLoai(ResultSet theLoaiRS, TheLoaiD theLoaiD){
         try {
-            theLoai.setIdTheloai(theLoaiRS.getInt(1));
-            theLoai.setTenLoai(theLoaiRS.getString(2));
+            theLoaiD.setIdTheloai(theLoaiRS.getInt(1));
+            theLoaiD.setTenLoai(theLoaiRS.getString(2));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return theLoai;
+        return theLoaiD;
     }
 }

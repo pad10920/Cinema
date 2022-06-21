@@ -1,14 +1,14 @@
 package com.example.cinema.model;
 
-public class TheLoaiPhim {
+public class TheLoaiPhimD {
     private int idTheloaiphim;
     private int idPhim;
     private int idTheloai;
 
-    public TheLoaiPhim() {
+    public TheLoaiPhimD() {
     }
 
-    public TheLoaiPhim(int idTheloaiphim, int idPhim, int idTheloai) {
+    public TheLoaiPhimD(int idTheloaiphim, int idPhim, int idTheloai) {
         this.idTheloaiphim = idTheloaiphim;
         this.idPhim = idPhim;
         this.idTheloai = idTheloai;
@@ -40,7 +40,7 @@ public class TheLoaiPhim {
 
     @Override
     public String toString() {
-        return "TheLoaiPhim{" +
+        return "TheLoaiPhimD{" +
                 "idTheloaiphim=" + idTheloaiphim +
                 ", idPhim=" + idPhim +
                 ", idTheloai=" + idTheloai +

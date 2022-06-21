@@ -11,29 +11,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import com.example.cinema.mapper.PhimMapper;
-import com.example.cinema.model.Phim;
+import com.example.cinema.model.PhimD;
 
-import static com.example.cinema.dao.AbstractDAO.getConnection;
+import static com.example.cinema.dao.AbstractDAOD.getConnection;
 
 
 /**
  *
  * @author cuong
  */
-public class PhimDAO {
-    private static PhimDAO phimDAO = null;
-    public static PhimDAO khoiTao(){
-        return phimDAO == null ? new PhimDAO() : phimDAO;
+public class PhimDAOD {
+    private static PhimDAOD phimDAOD = null;
+    public static PhimDAOD khoiTao(){
+        return phimDAOD == null ? new PhimDAOD() : phimDAOD;
     }
     private PhimMapper phimMapper = PhimMapper.khoiTao();
-    private TheLoaiPhimDAO theLoaiPhimDAO = TheLoaiPhimDAO.khoiTao();
-    public List<Phim> findAll(){
+    private TheLoaiPhimDAOD theLoaiPhimDAOD = TheLoaiPhimDAOD.khoiTao();
+    public List<PhimD> findAll(){
 
-        List<Phim> list = new ArrayList<>();
+        List<PhimD> list = new ArrayList<>();
         Connection connection = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -44,7 +42,7 @@ public class PhimDAO {
             pstm = connection.prepareStatement(sql);
             rs = pstm.executeQuery();
             while(rs.next()){
-                Phim phim = new Phim();
+                PhimD phimD = new PhimD();
                 int id = rs.getInt("ID_PHIM");
                 list.add(getPhimById(id));
                 
@@ -74,8 +72,8 @@ public class PhimDAO {
         return null;
 
     }
-    public Phim getPhimById(int id){
-        Phim phim = new Phim();
+    public PhimD getPhimById(int id){
+        PhimD phimD = new PhimD();
         
         Connection connection = null;
         PreparedStatement pstm = null;
@@ -90,14 +88,14 @@ public class PhimDAO {
             
             rs = pstm.executeQuery();
             while(rs.next()){
-                phim.setId(rs.getInt("ID_PHIM"));
-                phim.setTenPhim(rs.getString("TEN_PHIM"));
-                phim.setThoiLuong(rs.getInt("THOI_LUONG"));
-                phim.setMoTa(rs.getString("MO_TA"));
-                phim.setQuocGia(rs.getString("QUOC_GIA"));
-                phim.setAnhPhim(rs.getString("ANH_PHIM"));
-                phim.setTrangThai(rs.getInt("TRANG_THAI"));
-//                return phim;
+                phimD.setId(rs.getInt("ID_PHIM"));
+                phimD.setTenPhim(rs.getString("TEN_PHIM"));
+                phimD.setThoiLuong(rs.getInt("THOI_LUONG"));
+                phimD.setMoTa(rs.getString("MO_TA"));
+                phimD.setQuocGia(rs.getString("QUOC_GIA"));
+                phimD.setAnhPhim(rs.getString("ANH_PHIM"));
+                phimD.setTrangThai(rs.getInt("TRANG_THAI"));
+//                return phimD;
                 
             }
             String sql1 = "SELECT TEN_LOAI from theloai, theloaiphim, phim WHERE\n" +
@@ -113,7 +111,7 @@ public class PhimDAO {
                 listTheLoai.add(rs.getString("TEN_LOAI"));
                
             }
-            return phim;
+            return phimD;
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,12 +136,12 @@ public class PhimDAO {
         return null;
 
     }
-    public List<Phim> getPhimByLoai(int loai){
-        List<Phim> list = findAll();
-        List<Phim> listLoai = new ArrayList<>();
-        for(Phim phim : list){
-            if(phim.getTrangThai() == loai){
-                listLoai.add(phim);
+    public List<PhimD> getPhimByLoai(int loai){
+        List<PhimD> list = findAll();
+        List<PhimD> listLoai = new ArrayList<>();
+        for(PhimD phimD : list){
+            if(phimD.getTrangThai() == loai){
+                listLoai.add(phimD);
             }
         }
         return listLoai;
@@ -188,19 +186,19 @@ public class PhimDAO {
         }
         return lastID + 1;
     }
-    public void insert(Phim phim){
+    public void insert(PhimD phimD){
         Connection connection = null;
         PreparedStatement pstm = null;
         try {
             connection = getConnection();
             String sql = "INSERT INTO `phim`(`TEN_PHIM`, `THOI_LUONG`, `MO_TA`, `QUOC_GIA`, `ANH_PHIM`, `TRANG_THAI`) VALUES (?, ?, ?, ?, ?, ?)";
             pstm = connection.prepareStatement(sql);
-            pstm.setString(1, phim.getTenPhim());
-            pstm.setInt(2, phim.getThoiLuong());
-            pstm.setString(3, phim.getMoTa());
-            pstm.setString(4, phim.getQuocGia());
-            pstm.setString(5, phim.getAnhPhim());
-            pstm.setInt(6, phim.getTrangThai());
+            pstm.setString(1, phimD.getTenPhim());
+            pstm.setInt(2, phimD.getThoiLuong());
+            pstm.setString(3, phimD.getMoTa());
+            pstm.setString(4, phimD.getQuocGia());
+            pstm.setString(5, phimD.getAnhPhim());
+            pstm.setInt(6, phimD.getTrangThai());
             
             pstm.executeUpdate();
             
@@ -228,7 +226,7 @@ public class PhimDAO {
     }
 
     public int layNextIdPhim(){
-        Connection connection = AbstractDAO.getConnection();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         int nextId = 0;
@@ -280,63 +278,63 @@ public class PhimDAO {
     }
 
     // lay list phim
-    public List<Phim> layListPhim(){
-        Connection connection = AbstractDAO.getConnection();
+    public List<PhimD> layListPhim(){
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        List<Phim> phimList = new ArrayList<>();
+        List<PhimD> phimDList = new ArrayList<>();
         String sql = "SELECT * FROM phim";
         try {
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                Phim phim = new Phim();
-                phim = phimMapper.phimDAOsangPhim(resultSet, phim);
-                phim.setTheLoais(theLoaiPhimDAO.layListTheLoaiByPhimId(phim.getIdPhim()));
-                phimList.add(phim);
+                PhimD phimD = new PhimD();
+                phimD = phimMapper.phimDAOsangPhim(resultSet, phimD);
+                phimD.setTheLoais(theLoaiPhimDAOD.layListTheLoaiByPhimId(phimD.getIdPhim()));
+                phimDList.add(phimD);
             }
             resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return phimList;
+        return phimDList;
     }
     // lay phim theo id
-    public Phim layPhimById(int idPhim){
-        Connection connection = AbstractDAO.getConnection();
+    public PhimD layPhimById(int idPhim){
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sql = "SELECT * FROM phim WHERE ID_PHIM = ?";
-        Phim phim = new Phim();
+        PhimD phimD = new PhimD();
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, idPhim);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                phim = phimMapper.phimDAOsangPhim(resultSet, phim);
-                phim.setTheLoais(theLoaiPhimDAO.layListTheLoaiByPhimId(idPhim));
+                phimD = phimMapper.phimDAOsangPhim(resultSet, phimD);
+                phimD.setTheLoais(theLoaiPhimDAOD.layListTheLoaiByPhimId(idPhim));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return phim;
+        return phimD;
     }
 
-    // cập nhật phim
-    public void capNhapPhim(Phim phim){
-        Connection connection = AbstractDAO.getConnection();
+    // cập nhật phimD
+    public void capNhapPhim(PhimD phimD){
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         String sql = "UPDATE `phim` SET `TEN_PHIM`= ?,`THOI_LUONG`= ?," +
                 "`MO_TA`= ?,`QUOC_GIA`=?,`TRANG_THAI`= ? " +
                 "WHERE ID_PHIM = ? ";
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, phim.getTenPhim());
-            preparedStatement.setInt(2, phim.getThoiLuong());
-            preparedStatement.setString(3, phim.getMoTa());
-            preparedStatement.setString(4, phim.getQuocGia());
-            preparedStatement.setInt(5, phim.getTrangThai());
-            preparedStatement.setInt(6, phim.getIdPhim());
+            preparedStatement.setString(1, phimD.getTenPhim());
+            preparedStatement.setInt(2, phimD.getThoiLuong());
+            preparedStatement.setString(3, phimD.getMoTa());
+            preparedStatement.setString(4, phimD.getQuocGia());
+            preparedStatement.setInt(5, phimD.getTrangThai());
+            preparedStatement.setInt(6, phimD.getIdPhim());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -344,26 +342,26 @@ public class PhimDAO {
     }
 
     // tìm phim bằng tên
-    public List<Phim> layListPhimByTen(String key){
-        Connection connection = AbstractDAO.getConnection();
+    public List<PhimD> layListPhimByTen(String key){
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        List<Phim> phimList = new ArrayList<>();
+        List<PhimD> phimDList = new ArrayList<>();
         String sql = "SELECT * FROM `phim` WHERE TEN_PHIM LIKE ?";
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, "%"+key+"%");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                Phim phim = new Phim();
-                phim = phimMapper.phimDAOsangPhim(resultSet, phim);
-                phim.setTheLoais(theLoaiPhimDAO.layListTheLoaiByPhimId(phim.getIdPhim()));
-                phimList.add(phim);
+                PhimD phimD = new PhimD();
+                phimD = phimMapper.phimDAOsangPhim(resultSet, phimD);
+                phimD.setTheLoais(theLoaiPhimDAOD.layListTheLoaiByPhimId(phimD.getIdPhim()));
+                phimDList.add(phimD);
             }
             resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return phimList;
+        return phimDList;
     }
 }

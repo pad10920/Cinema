@@ -1,7 +1,7 @@
 package com.example.cinema.services;
 
-import com.example.cinema.dao.TheLoaiDAO;
-import com.example.cinema.model.TheLoai;
+import com.example.cinema.dao.TheLoaiDAOD;
+import com.example.cinema.model.TheLoaiD;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ public class TheLoaiService {
     public static TheLoaiService khoiTao(){
         return theLoaiService == null ? new TheLoaiService() : theLoaiService;
     }
-    private TheLoaiDAO theLoaiDAO = TheLoaiDAO.khoiTaoTheLoaiDAO();
-    public List<TheLoai> layListTheLoai(){
+    private TheLoaiDAOD theLoaiDAO = TheLoaiDAOD.khoiTaoTheLoaiDAO();
+    public List<TheLoaiD> layListTheLoai(){
         return theLoaiDAO.layListTheloai();
     }
 }

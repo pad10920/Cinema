@@ -1,23 +1,23 @@
 package com.example.cinema.dao;
 
 import com.example.cinema.mapper.PhongchieuMapper;
-import com.example.cinema.model.Phongchieu;
+import com.example.cinema.model.PhongchieuD;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhongchieuDAO {
-    private static PhongchieuDAO phongchieuDAO = null;
-    public static PhongchieuDAO khoitao(){
-        return phongchieuDAO == null ? new PhongchieuDAO() : phongchieuDAO;
+public class PhongchieuDAOD {
+    private static PhongchieuDAOD phongchieuDAOD = null;
+    public static PhongchieuDAOD khoitao(){
+        return phongchieuDAOD == null ? new PhongchieuDAOD() : phongchieuDAOD;
     }
 
     private PhongchieuMapper mapper = PhongchieuMapper.khoitao();
 
-    public List<Phongchieu> layListPhongChieuSanDung(int idRap, Date ngaychieu, Time thoigianbd, Time thoigiankt){
-        List<Phongchieu> phongchieuList = new ArrayList<>();
-        Connection connection = AbstractDAO.getConnection();
+    public List<PhongchieuD> layListPhongChieuSanDung(int idRap, Date ngaychieu, Time thoigianbd, Time thoigiankt){
+        List<PhongchieuD> phongchieuDList = new ArrayList<>();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sql = "SELECT DISTINCT z.*\n" +
@@ -55,19 +55,19 @@ public class PhongchieuDAO {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 int idPhongchieu = resultSet.getInt(1);
-                phongchieuList.add(layPhongchieuById(idPhongchieu));
+                phongchieuDList.add(layPhongchieuById(idPhongchieu));
             }
             resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return phongchieuList;
+        return phongchieuDList;
     }
 
     // lay phong chieu by id
-    public Phongchieu layPhongchieuById(int phongchieuId){
-        Phongchieu phongchieu = new Phongchieu();
-        Connection connection = AbstractDAO.getConnection();
+    public PhongchieuD layPhongchieuById(int phongchieuId){
+        PhongchieuD phongchieuD = new PhongchieuD();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sql = "SELECT * FROM phongchieu WHERE ID_PHONGCHIEU = ?";
@@ -76,19 +76,19 @@ public class PhongchieuDAO {
             preparedStatement.setInt(1, phongchieuId);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                phongchieu = mapper.phongchieuDAOtoEntity(resultSet, phongchieu);
+                phongchieuD = mapper.phongchieuDAOtoEntity(resultSet, phongchieuD);
             }
             resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return phongchieu;
+        return phongchieuD;
     }
 
     //lay so luong ghe cua phong
     public int laySoLuongGhe(int idPhong){
         int soluong = 0;
-        Connection connection = AbstractDAO.getConnection();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sql = "SELECT SO_LUONG_GHE  FROM phongchieu WHERE ID_PHONGCHIEU = ?";

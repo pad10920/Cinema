@@ -6,7 +6,7 @@ import java.util.List;
  *
  * @author cuong
  */
-public class Phim {
+public class PhimD {
     private int idPhim;
     private String tenPhim;
     private int thoiLuong;
@@ -14,11 +14,11 @@ public class Phim {
     private String quocGia;
     private String anhPhim;
     private int trangThai;
-    private List<TheLoai> theLoais;
-    public Phim() {
+    private List<TheLoaiD> theLoaiDS;
+    public PhimD() {
     }
 
-    public Phim(int idPhim, String tenPhim, int thoiLuong, String moTa, String quocGia, String anhPhim, int trangThai) {
+    public PhimD(int idPhim, String tenPhim, int thoiLuong, String moTa, String quocGia, String anhPhim, int trangThai) {
         this.idPhim = idPhim;
         this.tenPhim = tenPhim;
         this.thoiLuong = thoiLuong;
@@ -27,7 +27,7 @@ public class Phim {
         this.anhPhim = anhPhim;
         this.trangThai = trangThai;
     }
-    public Phim(String tenPhim, int thoiLuong, String moTa, String quocGia, String anhPhim, int trangThai) {
+    public PhimD(String tenPhim, int thoiLuong, String moTa, String quocGia, String anhPhim, int trangThai) {
         this.tenPhim = tenPhim;
         this.thoiLuong = thoiLuong;
         this.moTa = moTa;
@@ -36,7 +36,7 @@ public class Phim {
         this.trangThai = trangThai;
     }
 
-    public Phim(String tenPhim, int thoiLuong, String moTa, String quocGia, String anhPhim, int trangThai, List<String> loaiPhim) {
+    public PhimD(String tenPhim, int thoiLuong, String moTa, String quocGia, String anhPhim, int trangThai, List<String> loaiPhim) {
        
         this.tenPhim = tenPhim;
         this.thoiLuong = thoiLuong;
@@ -110,17 +110,17 @@ public class Phim {
         this.idPhim = idPhim;
     }
 
-    public List<TheLoai> getTheLoais() {
-        return theLoais;
+    public List<TheLoaiD> getTheLoais() {
+        return theLoaiDS;
     }
 
-    public void setTheLoais(List<TheLoai> theLoais) {
-        this.theLoais = theLoais;
+    public void setTheLoais(List<TheLoaiD> theLoaiDS) {
+        this.theLoaiDS = theLoaiDS;
     }
 
     @Override
     public String toString() {
-        return "Phim{" +
+        return "PhimD{" +
                 "idPhim=" + idPhim +
                 ", tenPhim='" + tenPhim + '\'' +
                 ", thoiLuong=" + thoiLuong +
@@ -128,7 +128,7 @@ public class Phim {
                 ", quocGia='" + quocGia + '\'' +
                 ", anhPhim='" + anhPhim + '\'' +
                 ", trangThai=" + trangThai +
-                ", theLoais=" + theLoais +
+                ", theLoaiDS=" + theLoaiDS +
                 '}';
     }
 }

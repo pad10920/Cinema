@@ -1,14 +1,12 @@
 package com.example.cinema.services;
 
-import com.example.cinema.dao.PhimDAO;
-import com.example.cinema.dao.TheLoaiPhimDAO;
-import com.example.cinema.model.Phim;
+import com.example.cinema.dao.PhimDAOD;
+import com.example.cinema.dao.TheLoaiPhimDAOD;
+import com.example.cinema.model.PhimD;
 
 import javax.servlet.http.Part;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class PhimService {
     private static PhimService service = null;
@@ -16,21 +14,21 @@ public class PhimService {
         return service == null ? new PhimService() : service;
     }
 
-    private PhimDAO phimDAO = PhimDAO.khoiTao();
-    private TheLoaiPhimDAO theLoaiPhimDAO = TheLoaiPhimDAO.khoiTao();
+    private PhimDAOD phimDAOD = PhimDAOD.khoiTao();
+    private TheLoaiPhimDAOD theLoaiPhimDAOD = TheLoaiPhimDAOD.khoiTao();
 
-    public int themPhim(Phim phim, Part anhPhim, String theLoai, String location){
-        int nextId = phimDAO.layNextIdPhim();
+    public int themPhim(PhimD phimD, Part anhPhim, String theLoai, String location){
+        int nextId = phimDAOD.layNextIdPhim();
         String tenAnh = "";
         // tao ten cho hinh anh
-        for (String s : phim.getTenPhim().split(" ")){
+        for (String s : phimD.getTenPhim().split(" ")){
             String kyTuDau = String.valueOf(s.charAt(0));
             if (kyTuDau.compareToIgnoreCase("đ") != 0)
                 tenAnh += s.charAt(0);
         }
 
         tenAnh = (tenAnh + nextId + ".jpg").toUpperCase();
-        phim.setAnhPhim(tenAnh);
+        phimD.setAnhPhim(tenAnh);
 
         location += tenAnh;
         try {
@@ -38,35 +36,35 @@ public class PhimService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        phimDAO.insert(phim);
+        phimDAOD.insert(phimD);
         for (String s: theLoai.trim().split(",")){
             int idTheLoai = Integer.parseInt(s.trim());
-            theLoaiPhimDAO.luuTheLoai(nextId, idTheLoai);
+            theLoaiPhimDAOD.luuTheLoai(nextId, idTheLoai);
         }
         return 1;
     }
 
-    public void capNhapPhim(Phim phim, String theLoai){
-        System.out.println(phim);
-        phimDAO.capNhapPhim(phim);
-        theLoaiPhimDAO.xoaTheLoaiByIdPhim(phim.getIdPhim());
+    public void capNhapPhim(PhimD phimD, String theLoai){
+        System.out.println(phimD);
+        phimDAOD.capNhapPhim(phimD);
+        theLoaiPhimDAOD.xoaTheLoaiByIdPhim(phimD.getIdPhim());
 
         for(String s: theLoai.trim().split(",")){
             int idTheloai = Integer.parseInt(s.trim());
-            theLoaiPhimDAO.luuTheLoai(phim.getIdPhim(), idTheloai);
+            theLoaiPhimDAOD.luuTheLoai(phimD.getIdPhim(), idTheloai);
         }
     }
 
-    public List<Phim> layListPhimByTen(String key){
-        return phimDAO.layListPhimByTen(key);
+    public List<PhimD> layListPhimByTen(String key){
+        return phimDAOD.layListPhimByTen(key);
     }
-    public List<Phim> layListPhim(){
-        return phimDAO.layListPhim();
+    public List<PhimD> layListPhim(){
+        return phimDAOD.layListPhim();
     }
 
-    public Phim layPhimById(int idPhim){
-        Phim phim = phimDAO.layPhimById(idPhim);
-        return phim;
+    public PhimD layPhimById(int idPhim){
+        PhimD phimD = phimDAOD.layPhimById(idPhim);
+        return phimD;
     }
 
 }

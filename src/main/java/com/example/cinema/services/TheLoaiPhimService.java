@@ -1,6 +1,6 @@
 package com.example.cinema.services;
 
-import com.example.cinema.dao.TheLoaiPhimDAO;
+import com.example.cinema.dao.TheLoaiPhimDAOD;
 
 public class TheLoaiPhimService {
     private static TheLoaiService service = null;
@@ -8,8 +8,8 @@ public class TheLoaiPhimService {
         return service == null ? new TheLoaiService() : service;
     }
 
-    private TheLoaiPhimDAO theLoaiPhimDAO = TheLoaiPhimDAO.khoiTao();
+    private TheLoaiPhimDAOD theLoaiPhimDAOD = TheLoaiPhimDAOD.khoiTao();
     public void luuTheLoai(int idPhim, int idTheLoai){
-        theLoaiPhimDAO.luuTheLoai(idPhim, idTheLoai);
+        theLoaiPhimDAOD.luuTheLoai(idPhim, idTheLoai);
     }
 }

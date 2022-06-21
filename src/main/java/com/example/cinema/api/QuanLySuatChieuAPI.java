@@ -1,7 +1,6 @@
 package com.example.cinema.api;
 
-import com.example.cinema.model.Phim;
-import com.example.cinema.model.Suatchieu;
+import com.example.cinema.model.SuatchieuD;
 import com.example.cinema.services.SuatChieuService;
 import com.google.gson.Gson;
 
@@ -10,7 +9,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -57,8 +55,8 @@ public class QuanLySuatChieuAPI extends HttpServlet {
         String phongchieu = request.getParameter("phongchieu");
 
 
-        Suatchieu suatchieu = suatChieuService.taoSuatChieuByInfo(ngaychieu, thoigianbd, thoigiankt, giaVe);
-        suatChieuService.themSuatChieu(suatchieu, idPhim, phongchieu);
+        SuatchieuD suatchieuD = suatChieuService.taoSuatChieuByInfo(ngaychieu, thoigianbd, thoigiankt, giaVe);
+        suatChieuService.themSuatChieu(suatchieuD, idPhim, phongchieu);
     }
 
     @Override

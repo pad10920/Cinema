@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.Date;
 import java.sql.Time;
 
-public class PhongchieuTest {
+public class PhongchieuDTest {
     PhongChieuService phongChieuService = PhongChieuService.khoitao();
     @Test
     public void test(){

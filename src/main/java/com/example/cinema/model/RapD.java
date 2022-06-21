@@ -2,14 +2,14 @@ package com.example.cinema.model;
 
 import java.util.List;
 
-public class Rap {
+public class RapD {
     private int idRap;
     private String tenRap;
     private String diaChi;
     private String thongTin;
-    private List<Phongchieu> phongChieu;
+    private List<PhongchieuD> phongChieu;
 
-    public Rap(int idRap, String tenRap, String diaChi, String thongTin, List<Phongchieu> phongChieu) {
+    public RapD(int idRap, String tenRap, String diaChi, String thongTin, List<PhongchieuD> phongChieu) {
         this.idRap = idRap;
         this.tenRap = tenRap;
         this.diaChi = diaChi;
@@ -17,12 +17,12 @@ public class Rap {
         this.phongChieu = phongChieu;
     }
 
-    public Rap() {
+    public RapD() {
     }
 
     @Override
     public String toString() {
-        return "Rap{" +
+        return "RapD{" +
                 "idRap=" + idRap +
                 ", tenRap='" + tenRap + '\'' +
                 ", diaChi='" + diaChi + '\'' +
@@ -63,11 +63,11 @@ public class Rap {
         this.thongTin = thongTin;
     }
 
-    public List<Phongchieu> getPhongChieu() {
+    public List<PhongchieuD> getPhongChieu() {
         return phongChieu;
     }
 
-    public void setPhongChieu(List<Phongchieu> phongChieu) {
+    public void setPhongChieu(List<PhongchieuD> phongChieu) {
         this.phongChieu = phongChieu;
     }
 }

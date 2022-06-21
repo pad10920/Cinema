@@ -1,6 +1,6 @@
 package com.example.cinema.mapper;
 
-import com.example.cinema.model.Phim;
+import com.example.cinema.model.PhimD;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,18 +11,18 @@ public class PhimMapper {
         return phimMapper == null ? new PhimMapper() : phimMapper;
     }
 
-    public Phim phimDAOsangPhim(ResultSet phimRS, Phim phim){
+    public PhimD phimDAOsangPhim(ResultSet phimRS, PhimD phimD){
         try {
-            phim.setIdPhim(phimRS.getInt(1));
-            phim.setTenPhim(phimRS.getString(2));
-            phim.setThoiLuong(phimRS.getInt(3));
-            phim.setMoTa(phimRS.getString(4));
-            phim.setQuocGia(phimRS.getString(5));
-            phim.setTrangThai(phimRS.getInt(6));
-            phim.setAnhPhim(phimRS.getString(7));
+            phimD.setIdPhim(phimRS.getInt(1));
+            phimD.setTenPhim(phimRS.getString(2));
+            phimD.setThoiLuong(phimRS.getInt(3));
+            phimD.setMoTa(phimRS.getString(4));
+            phimD.setQuocGia(phimRS.getString(5));
+            phimD.setTrangThai(phimRS.getInt(6));
+            phimD.setAnhPhim(phimRS.getString(7));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return phim;
+        return phimD;
     }
 }

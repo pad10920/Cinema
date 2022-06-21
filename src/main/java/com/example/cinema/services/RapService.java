@@ -1,7 +1,7 @@
 package com.example.cinema.services;
 
-import com.example.cinema.dao.RapDAO;
-import com.example.cinema.model.Rap;
+import com.example.cinema.dao.RapDAOD;
+import com.example.cinema.model.RapD;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ public class RapService {
     public static RapService khoitao(){
         return rapService == null ? new RapService() : rapService;
     }
-    private RapDAO rapDAO = RapDAO.khoitao();
+    private RapDAOD rapDAOD = RapDAOD.khoitao();
     // lay list rap;
-    public List<Rap> layListRap(){
-        return rapDAO.layListRap();
+    public List<RapD> layListRap(){
+        return rapDAOD.layListRap();
     }
 }

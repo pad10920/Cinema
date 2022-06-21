@@ -38,7 +38,7 @@
                 <span class="nav-2-indicator"></span>
             </nav>
             <div class="themx active" id="themXuat">
-                <div class="chonphim" onclick="chon()">Chọn phim</div>
+                <div class="chonphim" onclick="chon()">Chọn phimD</div>
                 <div class="ds2">
                     <div class="dong" onclick="dong()">X</div>
                     <div class="bangphim-2">

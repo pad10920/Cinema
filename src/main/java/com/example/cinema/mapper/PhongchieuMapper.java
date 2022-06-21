@@ -1,6 +1,6 @@
 package com.example.cinema.mapper;
 
-import com.example.cinema.model.Phongchieu;
+import com.example.cinema.model.PhongchieuD;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,14 +11,14 @@ public class PhongchieuMapper {
         return mapper == null ? new PhongchieuMapper() : mapper;
     }
 
-    public Phongchieu phongchieuDAOtoEntity(ResultSet phongchieuRs, Phongchieu phongchieu){
+    public PhongchieuD phongchieuDAOtoEntity(ResultSet phongchieuRs, PhongchieuD phongchieuD){
         try {
-            phongchieu.setIdPhongchieu(phongchieuRs.getInt(1));
-            phongchieu.setTenPhong(phongchieuRs.getString(2));
-            phongchieu.setSoLuongGhe(phongchieuRs.getInt(3));
+            phongchieuD.setIdPhongchieu(phongchieuRs.getInt(1));
+            phongchieuD.setTenPhong(phongchieuRs.getString(2));
+            phongchieuD.setSoLuongGhe(phongchieuRs.getInt(3));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return phongchieu;
+        return phongchieuD;
     }
 }

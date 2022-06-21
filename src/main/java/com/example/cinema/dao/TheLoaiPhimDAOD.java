@@ -1,8 +1,7 @@
 package com.example.cinema.dao;
 
 import com.example.cinema.mapper.TheLoaiMapper;
-import com.example.cinema.model.TheLoai;
-import com.example.cinema.services.TheLoaiService;
+import com.example.cinema.model.TheLoaiD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,16 +10,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TheLoaiPhimDAO {
-    private static TheLoaiPhimDAO theLoaiPhimDAO = null;
-    public static TheLoaiPhimDAO khoiTao(){
-        return theLoaiPhimDAO == null ? new TheLoaiPhimDAO() : theLoaiPhimDAO;
+public class TheLoaiPhimDAOD {
+    private static TheLoaiPhimDAOD theLoaiPhimDAOD = null;
+    public static TheLoaiPhimDAOD khoiTao(){
+        return theLoaiPhimDAOD == null ? new TheLoaiPhimDAOD() : theLoaiPhimDAOD;
     }
 
     private TheLoaiMapper theLoaiMapper = TheLoaiMapper.khoiTaoTheLoaiMapper();
 
     public void luuTheLoai(int idPhim, int idTheLoai){
-        Connection connection = AbstractDAO.getConnection();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         String sql = "INSERT INTO theloaiphim (`ID_PHIM`, `ID_THELOAI`) " +
                 "VALUES (?, ?)";
@@ -33,9 +32,9 @@ public class TheLoaiPhimDAO {
             e.printStackTrace();
         }
     }
-    public List<TheLoai> layListTheLoaiByPhimId(int phimId){
-        List<TheLoai> loaiList = new ArrayList<>();
-        Connection connection = AbstractDAO.getConnection();
+    public List<TheLoaiD> layListTheLoaiByPhimId(int phimId){
+        List<TheLoaiD> loaiList = new ArrayList<>();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sql = "SELECT * FROM theloai \n" +
@@ -47,7 +46,7 @@ public class TheLoaiPhimDAO {
             preparedStatement.setInt(1, phimId);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                loaiList.add(theLoaiMapper.theLoaiDaoSangTheLoai(resultSet, new TheLoai()));
+                loaiList.add(theLoaiMapper.theLoaiDaoSangTheLoai(resultSet, new TheLoaiD()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,7 +55,7 @@ public class TheLoaiPhimDAO {
     }
 
     public void xoaTheLoaiByIdPhim(int idPhim){
-        Connection connection = AbstractDAO.getConnection();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         String sql = "DELETE FROM `theloaiphim` WHERE ID_PHIM = ?";
         try {

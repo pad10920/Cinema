@@ -1,7 +1,5 @@
 package com.example.cinema.utils;
 
-import com.example.cinema.model.User;
-
 import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;

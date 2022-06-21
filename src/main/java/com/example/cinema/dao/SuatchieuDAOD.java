@@ -1,32 +1,32 @@
 package com.example.cinema.dao;
 
 import com.example.cinema.mapper.SuatchieuMapper;
-import com.example.cinema.model.Suatchieu;
+import com.example.cinema.model.SuatchieuD;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SuatchieuDAO {
-    private static SuatchieuDAO dao = null;
-    public static SuatchieuDAO khoitao(){
-        return dao == null ? new SuatchieuDAO() : dao;
+public class SuatchieuDAOD {
+    private static SuatchieuDAOD dao = null;
+    public static SuatchieuDAOD khoitao(){
+        return dao == null ? new SuatchieuDAOD() : dao;
     }
 
     private SuatchieuMapper mapper = SuatchieuMapper.khoitao();
-    private PhimDAO phimDAO = PhimDAO.khoiTao();
+    private PhimDAOD phimDAOD = PhimDAOD.khoiTao();
 
-    public void themSuatChieu(Suatchieu suatchieu, int idPhim, int idPhong){
-        Connection connection = AbstractDAO.getConnection();
+    public void themSuatChieu(SuatchieuD suatchieuD, int idPhim, int idPhong){
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement;
         String sql = "INSERT INTO `suatchieu`(`GIA_VE`, `NGAY_CHIEU`, `THOI_GIAN_BD`, `THOI_GIAN_KT`, `ID_PHIM`, `ID_PHONGCHIEU`) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, suatchieu.getGiaVe());
-            preparedStatement.setDate(2, suatchieu.getNgaychieu());
-            preparedStatement.setTime(3, suatchieu.getThoigianBd());
-            preparedStatement.setTime(4, suatchieu.getThoigianKt());
+            preparedStatement.setInt(1, suatchieuD.getGiaVe());
+            preparedStatement.setDate(2, suatchieuD.getNgaychieu());
+            preparedStatement.setTime(3, suatchieuD.getThoigianBd());
+            preparedStatement.setTime(4, suatchieuD.getThoigianKt());
             preparedStatement.setInt(5, idPhim);
             preparedStatement.setInt(6, idPhong);
             preparedStatement.executeUpdate();
@@ -38,7 +38,7 @@ public class SuatchieuDAO {
     }
 
     public int layNextIdSuatchieu(){
-        Connection connection = AbstractDAO.getConnection();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         int nextId = 0;
@@ -57,9 +57,9 @@ public class SuatchieuDAO {
         return nextId;
     }
 
-    public List<Suatchieu> layListByRapId(int rapId){
-        List<Suatchieu> suatchieus = new ArrayList<>();
-        Connection connection = AbstractDAO.getConnection();
+    public List<SuatchieuD> layListByRapId(int rapId){
+        List<SuatchieuD> suatchieuses = new ArrayList<>();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sql = "SELECT * FROM suatchieu \n" +
@@ -73,22 +73,22 @@ public class SuatchieuDAO {
             preparedStatement.setInt(1, rapId);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                Suatchieu suatchieu = new Suatchieu();
-                suatchieu = mapper.suatchieuDAOtoEntity(resultSet, suatchieu);
-                suatchieu.setPhim(phimDAO.layPhimById(resultSet.getInt(6)));
-                suatchieus.add(suatchieu);
+                SuatchieuD suatchieuD = new SuatchieuD();
+                suatchieuD = mapper.suatchieuDAOtoEntity(resultSet, suatchieuD);
+                suatchieuD.setPhim(phimDAOD.layPhimById(resultSet.getInt(6)));
+                suatchieuses.add(suatchieuD);
             }
             resultSet.close();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return suatchieus;
+        return suatchieuses;
     }
 
-    public Suatchieu laySuatchieuById(int id){
-        Suatchieu suatchieu = new Suatchieu();
-        Connection connection = AbstractDAO.getConnection();
+    public SuatchieuD laySuatchieuById(int id){
+        SuatchieuD suatchieuD = new SuatchieuD();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sql = "SELECT * FROM `suatchieu` WHERE ID_SUATCHIEU = ?";
@@ -97,18 +97,18 @@ public class SuatchieuDAO {
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                suatchieu = mapper.suatchieuDAOtoEntity(resultSet, suatchieu);
-                suatchieu.setPhim(phimDAO.layPhimById(resultSet.getInt(6)));
+                suatchieuD = mapper.suatchieuDAOtoEntity(resultSet, suatchieuD);
+                suatchieuD.setPhim(phimDAOD.layPhimById(resultSet.getInt(6)));
             }
             resultSet.close();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return suatchieu;
+        return suatchieuD;
     }
     public void capNhatSuatChieu(int idSuatchieu, int idPhim, int giaVe){
-        Connection connection = AbstractDAO.getConnection();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sql = "UPDATE `suatchieu` SET `GIA_VE`=?, `ID_PHIM`=? WHERE ID_SUATCHIEU = ?";
@@ -124,7 +124,7 @@ public class SuatchieuDAO {
         }
     }
     public void xoaById(int idSuatchieu){
-        Connection connection = AbstractDAO.getConnection();
+        Connection connection = AbstractDAOD.getConnection();
         PreparedStatement preparedStatement = null;
         String sql = "DELETE FROM `suatchieu` WHERE ID_SUATCHIEU = ?";
         try {

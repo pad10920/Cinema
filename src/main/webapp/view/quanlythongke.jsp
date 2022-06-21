@@ -19,7 +19,7 @@
         <!--Phần bar chọn chức năng-->
         <div class="bar">
             <a href="/quan-ly/quanlyphim" style="color: white;">
-                <div class="quanly phim"> <span class="round">QUẢN LÝ PHIM</div>
+                <div class="quanly phimD"> <span class="round">QUẢN LÝ PHIM</div>
             </a>
             <a href="/quan-ly/quanlysuatchieu">
                 <div class="quanly">QUẢN LÝ XUẤT CHIẾU</div>
@@ -29,7 +29,7 @@
                     &ensp;THỐNG KÊ</div>
             </a>
         </div>
-        <!--Phần quản lý phim-->
+        <!--Phần quản lý phimD-->
         <div class="quanlybox">
             <div class="loc">
                 <div class="thongke-2">THỐNG KÊ</div>
