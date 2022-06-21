@@ -14,7 +14,7 @@ public class Phim {
     private String quocGia;
     private String anhPhim;
     private int trangThai;
-    private List<String> loaiPhim;
+    private List<TheLoai> theLoais;
     public Phim() {
     }
 
@@ -44,7 +44,6 @@ public class Phim {
         this.quocGia = quocGia;
         this.anhPhim = anhPhim;
         this.trangThai = trangThai;
-        this.loaiPhim = loaiPhim;
     }
 
     public int getId() {
@@ -111,12 +110,25 @@ public class Phim {
         this.idPhim = idPhim;
     }
 
-    public List<String> getLoaiPhim() {
-        return loaiPhim;
+    public List<TheLoai> getTheLoais() {
+        return theLoais;
     }
 
-    public void setLoaiPhim(List<String> loaiPhim) {
-        this.loaiPhim = loaiPhim;
+    public void setTheLoais(List<TheLoai> theLoais) {
+        this.theLoais = theLoais;
     }
-     
+
+    @Override
+    public String toString() {
+        return "Phim{" +
+                "idPhim=" + idPhim +
+                ", tenPhim='" + tenPhim + '\'' +
+                ", thoiLuong=" + thoiLuong +
+                ", moTa='" + moTa + '\'' +
+                ", quocGia='" + quocGia + '\'' +
+                ", anhPhim='" + anhPhim + '\'' +
+                ", trangThai=" + trangThai +
+                ", theLoais=" + theLoais +
+                '}';
+    }
 }

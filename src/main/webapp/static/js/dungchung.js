@@ -1,4 +1,4 @@
-const DIACHI_API = "https://localhost:8443/api";
+const DIACHI_API = "/api";
 
 function kiemTraFrmTrong(phanTuFrm){
     var phanTuInputs = phanTuFrm.querySelectorAll('input');

@@ -5,9 +5,13 @@
  */
 package com.example.cinema.dao;
 
+import com.example.cinema.mapper.TheLoaiMapper;
+import com.example.cinema.model.TheLoai;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +20,14 @@ import java.util.List;
  * @author cuong
  */
 public class TheLoaiDAO extends AbstractDAO{
+
+    private static  TheLoaiDAO theLoaiDAO = null;
+    public static TheLoaiDAO khoiTaoTheLoaiDAO(){
+        return theLoaiDAO == null ? new TheLoaiDAO() : theLoaiDAO;
+    }
+
+    private TheLoaiMapper theLoaiMapper = TheLoaiMapper.khoiTaoTheLoaiMapper();
+
     public static List<String> getTheLoaiByIDPhim(int id){
         List<String> list = new ArrayList<>();
         
@@ -43,5 +55,26 @@ public class TheLoaiDAO extends AbstractDAO{
             e.printStackTrace();
         }
         return list;
+    }
+    public List<TheLoai> layListTheloai(){
+        List<TheLoai> result = new ArrayList<>();
+        Connection connection = AbstractDAO.getConnection();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        String query = "SELECT * FROM theloai;";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                TheLoai theLoai = new TheLoai();
+                theLoai = theLoaiMapper.theLoaiDaoSangTheLoai(resultSet, theLoai);
+                result.add(theLoai);
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

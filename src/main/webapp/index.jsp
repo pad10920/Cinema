@@ -63,7 +63,7 @@
     <div class="container">
         <div class="cinema-menu">
             <button class="active" type-cinema="1">PHIM SẮP CHIẾU</button>
-
+            
             <button type-cinema="2">PHIM ĐANG CHIẾU</button>
             <button type-cinema="3">SUẤT CHIẾU ĐẶC BIỆT</button>
         </div>

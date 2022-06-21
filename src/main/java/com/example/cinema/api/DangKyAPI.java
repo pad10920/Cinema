@@ -29,7 +29,7 @@ public class DangKyAPI extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
-
+        System.out.println("do post dang ky");
         PrintWriter printWriter = response.getWriter();
         printWriter.print(username + ' ' + email);
     }

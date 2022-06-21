@@ -1,0 +1,866 @@
+.noidung {
+    margin: 0;
+    height: 70px;
+    width: 100%;
+    box-shadow: 2px 6px 2px gray;
+    text-align: center;
+    color: blue;
+    font-size: 27px;
+    opacity: 1.5;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #d6cab3;
+}
+
+.bar {
+    margin-top: 8px;
+    font-size: 13px;
+    height: 1200px;
+    width: 15%;
+    box-shadow: 8px 2px gray;
+    position: relative;
+    bottom: 5px;
+    background-color: azure;
+}
+
+.quanly {
+    margin-top: 10px;
+    height: 50px;
+    width: 180px;
+    border: solid rgb(65, 65, 185);
+    text-align: center;
+    background-image: linear-gradient(rgb(56, 93, 148), rgb(20, 51, 136));
+    color: white;
+    line-height: 45px;
+    border-radius: 30px;
+    transition: 1s ease;
+    cursor: pointer;
+}
+
+.quanly:hover {
+    color: rgb(255, 255, 253);
+    width: 190px;
+    background: darken(red, 1.5%);
+    border: 1px solid rgba(#000, .05);
+    box-shadow: 1px 1px 2px rgba(#fff, .2);
+    color: lighten(rgb(231, 233, 227), 18%);
+    text-decoration: none;
+    text-shadow: -1px -1px 0 darken(red, 9.5%);
+    transition: all 250ms linear;
+}
+
+.phim {
+    color: rgb(212, 171, 171);
+}
+
+.phanthan {
+    display: flex;
+}
+
+.quanlybox {
+
+    margin-left: 1%;
+    margin-top: 5px;
+    height: 1000px;
+    width: 80%;
+}
+
+.nav {
+
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    background-color: rgb(43, 43, 184);
+    padding: 0 20px;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(150, 174, 178, 0.8);
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.nav-item {
+    color: #d6cab3;
+    padding: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin: 0 7px;
+    z-index: 1;
+    position: relative;
+}
+
+.nav-item:before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 0px;
+    width: 100%;
+    height: 5px;
+    background-color: #dfe2ea;
+    border-radius: 8px 8px 0 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.nav-item:not(.is_active):hover:before {
+    opacity: 1;
+    bottom: 0;
+}
+
+.nav-item:not(.is-active):hover {
+    color: #333;
+}
+
+.nav-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    transition: 0.4s;
+    height: 5px;
+    z-index: 1;
+    border-radius: 8px 8px 0 0;
+}
+
+@media screen and (max-width:1200px) {
+    .quanly {
+        width: 60px;
+        overflow: hidden;
+        font-size: 8px;
+    }
+}
+
+.nhap {
+    margin-top: 40px;
+    margin-left: 20px;
+    display: none;
+}
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.onhap {
+    font-size: 14px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 360px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    box-shadow: 0px 2px rgb(33, 124, 151);
+}
+
+.onhap-2 {
+    font-size: 14px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 360px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    box-shadow: 0px 2px rgb(33, 124, 151);
+}
+
+.onhap-3 {
+    font-size: 14px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 360px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    box-shadow: 0px 2px rgb(33, 124, 151);
+}
+
+.sub {
+    width: 140px;
+    height: 45px;
+    margin-left: 240px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: rgb(43, 43, 184);
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(20, 85, 47, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.sub:hover {
+    background-color: #1aa7b1;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.nhap.active {
+    display: block;
+}
+
+.search {
+    margin-left: 10%;
+}
+
+.tim {
+    color: white;
+    height: 40px;
+    width: 200px;
+    background-color: rgb(43, 43, 184);
+    box-shadow: 0px 15px 20px rgba(112, 164, 189, 0.4);
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 40px;
+}
+
+#nhapten:focus {
+
+    background-color: rgb(172, 199, 201);
+}
+
+#nhapten {
+    border: 1px solid black;
+    border-radius: 4px;
+    transition: 4s ease-in-out;
+    height: 40px;
+}
+
+.sub2 {
+    width: 90px;
+    height: 30px;
+    margin-left: 20px;
+    font-size: 11px;
+    text-transform: uppercase;
+
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: rgb(43, 43, 184);
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(20, 85, 47, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.sub2:hover {
+    background-color: #107c8f;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+@media screen and (max-width:1200px) {
+    .search {
+        margin-left: 5%;
+    }
+
+}
+
+.danhsach {
+    height: 500px;
+    width: 1000px;
+    border: 3px outset rgb(164, 182, 173);
+    margin-top: 30px;
+    box-shadow: 2px 6px 2px rgb(99, 107, 218);
+    background-image: linear-gradient(rgb(131, 171, 209), rgb(196, 232, 238));
+    overflow: scroll;
+}
+
+
+
+
+.truong {
+    display: flex;
+}
+
+.dt {
+    margin-left: 9px;
+    background-color: rgb(57, 81, 185);
+    height: 20px;
+    width: 150px;
+    border: solid rgb(112, 171, 199);
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.ds {
+    margin-left: 9px;
+    background-color: rgb(229, 231, 240);
+    height: 20px;
+    width: 150px;
+    border: solid rgb(112, 171, 199);
+    font-size: 12px;
+    color: rgb(10, 10, 10);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 3px;
+}
+
+.phimsss:hover {
+    background-color: aqua;
+    cursor: pointer;
+    border: 3px inset #c1cdcf;
+
+}
+
+@media screen and (max-width:1400px) {
+    .danhsach {
+        width: 600px;
+    }
+}
+
+.xuat {
+    color: rgb(212, 171, 171);
+}
+
+.nav-2 {
+
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    background-color: rgb(43, 43, 184);
+    padding: 0 20px;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(150, 174, 178, 0.8);
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.nav-2-item {
+    color: #d6cab3;
+    padding: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin: 0 7px;
+    z-index: 1;
+    position: relative;
+}
+
+.nav-2-item:before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 0px;
+    width: 100%;
+    height: 5px;
+    background-color: #dfe2ea;
+    border-radius: 8px 8px 0 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.nav-2-item:not(.is_active):hover:before {
+    opacity: 1;
+    bottom: 0;
+}
+
+.nav-2-item:not(.is-active):hover {
+    color: #333;
+}
+
+.nav-2-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    transition: 0.4s;
+    height: 5px;
+    z-index: 1;
+    border-radius: 8px 8px 0 0;
+}
+
+.chonphim {
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+    margin-top: 30px;
+    border: solid rgb(22, 141, 145);
+    border-radius: 8px 8px 8px 8px;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgb(5, 71, 71);
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: 1.2s ease-in-out;
+}
+
+.chonphim:hover {
+    background-color: rgb(85, 151, 135);
+    color: #000;
+
+}
+.ds2 {
+    margin-top: 10px;
+    border: outset rgb(177, 212, 201);
+    margin-left: 50px;
+    width: 700px;
+    height: 600px;
+    display: none;
+}
+.dong {
+    height: 15px;
+    width: 15px;
+    border: outset rgb(135, 175, 177);
+    text-align: center;
+    background-color: rgb(5, 71, 71);
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    margin-left: 680px;
+}
+
+.dong:hover {
+    color: red;
+}
+
+.themx {
+    display: none;
+}
+
+.themx.active {
+    display: block;
+}
+
+.truong-2 {
+    display: flex;
+}
+
+.xx-2 {
+    display: flex;
+}
+
+.dt-2 {
+    margin-left: 9px;
+    background-color: rgb(57, 81, 185);
+    height: 20px;
+    width: 150px;
+    border: solid rgb(112, 171, 199);
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.ds-2 {
+    margin-left: 9px;
+    background-color: rgb(200, 214, 199);
+    width: 150px;
+    border: solid rgb(106, 162, 189);
+    font-size: 12px;
+    color: rgb(10, 10, 10);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 3px;
+}
+
+
+.xx-2:hover {
+    background-color: aqua;
+    cursor: pointer;
+    border: 3px inset #c1cdcf;
+}
+
+.ds2 {
+    background-color: #dae5e7;
+}
+
+.nhapthongtin {
+    margin-left: 70px;
+    margin-top: 30px;
+}
+
+.ds2 {
+    transition: 2s ease-in-out;
+}
+
+.phimsss {
+    display: flex;
+    margin-bottom: 10px;
+    line-height: 29px;
+}
+
+.ds {
+    margin-bottom: 4px;
+}
+
+.tieude {
+    margin-left: 30%;
+    margin-top: 40px;
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+    margin-top: 30px;
+    border: solid rgb(22, 141, 145);
+    border-radius: 8px 8px 8px 8px;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgb(5, 71, 71);
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: 1.2s ease-in-out;
+}
+
+.tieude:hover {
+    background-color: rgb(85, 151, 135);
+    color: #000;
+
+}
+
+.danhsach2 {
+    transition: 2s ease-in-out;
+    background-color: #dae5e7;
+    margin-top: 10px;
+    border: outset rgb(177, 212, 201);
+    margin-left: 50px;
+    width: 700px;
+    height: 600px;
+    display: none;
+    transition: 1s ease-in-out;
+    overflow: scroll;
+}
+
+.dong2 {
+    height: 15px;
+    width: 15px;
+    border: outset rgb(135, 175, 177);
+    text-align: center;
+    background-color: rgb(5, 71, 71);
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    margin-left: 660px;
+
+}
+
+.dong2:hover {
+    color: red;
+}
+
+.item-rap {
+    margin-left: 40px;
+    height: 30px;
+    width: 80%;
+    border: 3px outset rgb(125, 197, 167);
+    text-align: center;
+    line-height: 30px;
+    background-color: #b3ced6;
+    cursor: pointer;
+    margin-bottom: 4px;
+
+}
+
+.item-rap:hover {
+    background-color: cornflowerblue;
+    transition: 0.2s ease-in-out;
+
+}
+
+.danhsach-xc {
+    transition: 2s ease-in-out;
+    background-color: #dae5e7;
+    margin-top: 10px;
+    border: outset rgb(177, 212, 201);
+    margin-left: 50px;
+    width: 1000px;
+    height: 600px;
+    transition: 1s ease-in-out;
+    overflow: scroll;
+    display: none;
+}
+
+.quaylai {
+
+    margin-bottom: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+
+}
+
+.quaylai:hover {
+    color: red;
+}
+
+.item-xc {
+    height: 30px;
+    width: 97%;
+
+    margin-left: 7px;
+    margin-bottom: 3px;
+    display: flex;
+}
+
+.j {
+    margin-left: 9px;
+    background-color: rgb(57, 81, 185);
+    height: 20px;
+    width: 150px;
+    border: solid rgb(112, 171, 199);
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.k {
+    margin-left: 9px;
+    background-color: rgb(200, 214, 199);
+    height: 20px;
+    width: 150px;
+    border: solid rgb(106, 162, 189);
+    font-size: 12px;
+    color: rgb(10, 10, 10);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 3px;
+}
+
+.xx-2:hover {
+    background-color: aqua;
+    cursor: pointer;
+    border: 2px inset #c1cdcf;
+}
+
+.item-xc-2 {
+    display: flex;
+    height: 30px;
+    width: 97%;
+    margin-left: 7px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.thongtin:hover {
+
+    background-color: aqua;
+    cursor: pointer;
+    border:1px inset #c1cdcf;
+
+}
+.thongtin{
+    display: flex;
+}
+.options{
+    display: flex;
+    margin-top: 6px;
+}
+.e{
+    margin-left:10px ;
+    color: blue;
+    cursor: pointer;
+    border-bottom:solid blue ;
+    transform: 1.2s ease-in-out;
+}
+.e:hover{
+    border-bottom:solid red ;
+}
+.group-2 {
+    margin-bottom: 30px;
+}
+.onhap-4{
+    font-size: 14px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 360px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    box-shadow: 0px 2px rgb(33, 124, 151);
+
+}
+.nhapsuaxc{
+    width: 600px;
+    border: 2px solid red;
+    position: fixed;
+    top:50px;
+    left: 500px;
+    background-color: #1aa7b1;
+    height: 570px;
+    display:none;
+    z-index: 999;
+}
+.dulieusua{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.sub-3{
+    width: 80px;
+    height: 30px;
+    margin-left: 290px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: rgb(43, 43, 184);
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(20, 85, 47, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+.sub-3:hover {
+    background-color: #024217;
+    box-shadow: 0px 15px 20px rgba(28, 128, 36, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+.dongsua{
+    background-color: #024217;
+    margin-left: 540px;
+    height: 15px;
+    width: 15px;
+    border: outset rgb(135, 175, 177);
+    text-align: center;
+    background-color: rgb(5, 71, 71);
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+
+}
+.dongsua:hover{
+    color: red;
+}
+.loc{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+.thongke-2{
+    margin-bottom: 20px;
+    width: 190px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: rgb(184, 128, 43);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(20, 85, 47, 0.1);
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+#kind{
+    font-size: 20px;
+    margin-left: 75px;
+}
+.an-loc{
+    width: 90px;
+    height: 30px;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 18px;
+    margin-left: 140px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: rgb(184, 71, 43);
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(212, 77, 14, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+.an-loc:hover {
+    background-color: #8f7810;
+    box-shadow: 0px 15px 20px rgba(212, 211, 118, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+.bangthongke{
+    margin-top: 40px;
+    height: 571px;
+    width: 100%;
+    border:1px solid rgb(30, 89, 179);
+    border-radius: 5px;
+    overflow: scroll;
+}
+.motthe{
+    display: flex;
+    width: 98%;
+    margin-top: 3px;
+}
+.item-tk{
+    width: 24%;
+    height: 30px;
+    margin-left: 5px;
+    padding-left: 10px;
+    line-height: 30px;
+    color: white;
+    background-color: rgb(94, 94, 170);
+    border: 2px outset blue;
+}
+.danhsach-ve{
+    display: flex;
+    width: 98%;
+    margin-top: 3px;
+}
+.item-thongke{
+    width: 20%;
+    height: 30px;
+    margin-left: 5px;
+    padding-left: 10px;
+    line-height: 30px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(207, 207, 224);
+}
+
+
+/*---------*/
+
+.selectBox {
+    width: 360px;
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    font-weight: bold;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.checkboxtheloai {
+    display: none;
+    width: 360px;
+    border: 1px #dadada solid;
+}
+
+.checkboxtheloai label {
+    display: block;
+}
+
+.checkboxtheloai label:hover {
+    background-color: #1e90ff;
+}
