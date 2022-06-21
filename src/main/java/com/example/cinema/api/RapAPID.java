@@ -9,8 +9,8 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "RapAPI", value = "/api/rap/")
-public class RapAPI extends HttpServlet {
+@WebServlet(name = "RapAPID", value = "/api/rap/")
+public class RapAPID extends HttpServlet {
     private RapService rapService = RapService.khoitao();
     private Gson gson = new Gson();
     @Override

@@ -8,10 +8,9 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 
-@WebServlet(name = "PhongchieuAPI", value = "/api/phongchieu/*")
-public class PhongchieuAPI extends HttpServlet {
+@WebServlet(name = "PhongchieuAPID", value = "/api/phongchieu/*")
+public class PhongchieuAPID extends HttpServlet {
     Gson gson = new Gson();
     PhongChieuService phongChieuService = PhongChieuService.khoitao();
     @Override
